@@ -1,47 +1,20 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import headerComponent from './components/headerComponent.vue'
+import CardList from './components/CardList.vue'
+import DrawerPopUp from './components/DrawerPopUp.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <DrawerPopUp />
+  <div class="bg-white w-4/5 m-auto rounded-xl shadow-xl mt-14">
+    <headerComponent />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div class="p-10">
+      <h2 class="text-3xl font-bold mb-8">Все Кроссовки</h2>
+
+      <CardList />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
