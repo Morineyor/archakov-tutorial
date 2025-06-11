@@ -1,7 +1,14 @@
+<script setup>
+import { inject } from 'vue'
+
+const { closeCart } = inject('cart')
+</script>
+
 <template>
   <div class="flex items-center justify-between gap-5 mb-5">
     <h2 class="text-2xl font-bold">Корзина</h2>
     <svg
+      @click="closeCart"
       class="opacity-30 cursor-pointer rotate-180 transition hover:opacity-100 duration-500 ease-in-out hover:rotate-z-360"
       width="16"
       height="14"

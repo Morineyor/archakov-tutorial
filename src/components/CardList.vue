@@ -5,22 +5,25 @@ defineProps({
   items: Array,
 })
 
-const onClickAdd = () => {
-  alert('Добавить!')
-}
+const emit = defineEmits(['addToFavorite', 'addToCart'])
 </script>
 
 <template>
-  <div class="grid grid-cols-4 gap-5">
+  <div
+    v-auto-animate
+    class="grid grid-cols-4 gap-5"
+  >
     <CardComponent
       v-for="item in items"
       :key="item.id"
+      :id="item.id"
       :title="item.title"
       :image-url="item.imageUrl"
       :price="item.price"
       :is-favorite="item.isFavorite"
-      :is-added="false"
-      :onClickAdd="onClickAdd"
+      :is-added="item.isAdded"
+      :onClickAdd="() => emit('addToCart', item)"
+      :onClickFavorite="() => emit('addToFavorite', item)"
     />
   </div>
 </template>
